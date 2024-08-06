@@ -5,6 +5,7 @@ import { UserLoginComponent } from "./user-login/user-login.component";
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'; // Import de FormsModule
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -26,7 +27,8 @@ export class AppComponent {
   imports: [
     AppComponent,
     BrowserModule,
-    FormsModule // Ajout de FormsModule dans les imports
+    FormsModule ,// Ajout de FormsModule dans les imports
+    HttpClient // not work for version V18 only for V13
   ],
 })
 

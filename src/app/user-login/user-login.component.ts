@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { LoginuserService } from '../loginuser.service';
+import { data } from 'jquery';
+
 
 
 @Component({
@@ -10,15 +12,21 @@ import { LoginuserService } from '../loginuser.service';
   templateUrl: './user-login.component.html',
   styleUrl: './user-login.component.css'
 })
-export class UserLoginComponent {
+export class UserLoginComponent{
 
   user:User = new User();
   constructor(private loginuserservice: LoginuserService){}
 
-  regOnInit(): void{}
+  
 
   userLogin(){
     console.log(this.user);
+    this.loginuserservice.loginUser(this.user).subscribe(data=>{
+      console.log(data);
+      alert("login succed");
+    }//, error=>alert("something wrong restart")); // only for V13
   
   }
+  regOnInit(): void{}
+
 }
